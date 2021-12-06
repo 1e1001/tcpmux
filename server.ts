@@ -61,13 +61,13 @@ export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
 					});
 					const outgoing = conn.conn;
 					Log(id, `Connected to ${PrintAddr(match)}`);
-					if (headerMatch !== null)
-						await writeAll(outgoing, headerMatch);
 					if (match.subport !== null) {
 						Log(id, `Writing header`);
 						await writeAll(outgoing, muxHeader);
 						await writeAll(outgoing, toUInt(match.subport, 8));
 					}
+					if (headerMatch !== null)
+						await writeAll(outgoing, headerMatch);
 					await Promise.any([
 						copy(incoming, outgoing),
 						copy(outgoing, incoming)]);
