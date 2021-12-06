@@ -1,6 +1,6 @@
 #!/bin/bash
 function run {
-	echo $@
+	echo ">>" $@
 	$@
 }
 run mkdir -pv /etc/tcpmux/
