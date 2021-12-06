@@ -7,7 +7,7 @@ tcpmux consists of 4 main files, downloadable from the Releases as a zip.
 - `tcpmux_start` - starts `tcpmux`, don't call this directly
 - `tcpmux_stop` - stops `tcpmux`
 - `tcpmux.service` - a systemd service for TCPmux
-	> *Note: this expects tcpmux to be installed in* `/etc/tcpmux/` *such that* `/etc/tcpmux/tcpmux` is the main script
+> *Note: this expects tcpmux to be installed in* `/etc/tcpmux/` *such that* `/etc/tcpmux/tcpmux` is the main script
 - `tcpmux.cfg` - example config file (see [Config Format](#config-format))
 
 ## Starting
