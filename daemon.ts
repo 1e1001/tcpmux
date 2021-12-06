@@ -11,7 +11,7 @@ const configPath = Deno.args[0];
 if (!configPath)
 	throw new Error(`No config path specified`);
 console.log();
-Log(logSource, `\x1b[1mTCPmux\x1b[0m`)
+Log(logSource, `\x1b[1mTCPmux\x1b[0m starting`)
 
 const globalData: GlobalData = {
 	inc: 0n,
@@ -101,5 +101,5 @@ async function Run(reload: boolean) {
 		...StartServers(config, globalData)
 		// ...StartClients(config, globalData)
 	);
-	Log(logSource, `Configuration loaded,`, listeners.length, `listeners running`);
+	Log(logSource, `Configuration loaded,`, listeners.length, `listener${listeners.length === 1 ? `` : `s`} running`);
 }
