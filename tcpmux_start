@@ -1,0 +1,5 @@
+#!/bin/bash
+/*/true
+CFG=${TCPMUX_CONFIG:-"./tcpmux.cfg"}
+deno run --allow-read=$CFG --allow-net --unstable ./tcpmux_start $CFG
+exit #*/

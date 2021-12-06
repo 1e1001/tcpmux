@@ -1,0 +1,10 @@
+[Unit]
+Description=TCPmux service
+After=network.target
+
+[Service]
+ExecStart=/bin/env bash /etc/tcpmux/tcpmux
+ExecStop=/bin/env bash /etc/tcpmux/tcpmux_stop
+
+[Install]
+WantedBy=multi-user.target
