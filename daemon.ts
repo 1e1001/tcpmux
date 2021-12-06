@@ -11,7 +11,7 @@ const configPath = Deno.args[0];
 if (!configPath)
 	throw new Error(`No config path specified`);
 console.log();
-Log(logSource, `\x1b[1mTCPmux\x1b[0m 1.1.0`)
+Log(logSource, `\x1b[1mTCPmux\x1b[0m`)
 
 const globalData: GlobalData = {
 	inc: 0n,

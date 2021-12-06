@@ -35,12 +35,10 @@ export async function readStream(stream: Deno.Reader, count: number) {
 }
 /** like readStream, but stops as soon as the stream doesn't match target, and returns null if it finishes and matches */
 export async function matchStream(stream: Deno.Reader, target: Uint8Array) {
-	console.log(`MatchStream: target`, target);
 	const out = new Uint8Array(target.length);
 	let n = 0;
 	while (n < target.length) {
 		const read = await stream.read(out.subarray(n));
-		console.log(`MatchStream: out`, out);
 		if (read === null)
 			return out.slice(0, n);
 		n += read;
