@@ -2,7 +2,7 @@
 TCP multiplexer / proxy daemon
 
 ## Installing
-tcpmux consists of 4 main files, downloadable from the Releases as a zip.
+tcpmux consists of 4 main files, downloadable from the Releases as a tarball.
 - `tcpmux` - main TCPmux script
 - `tcpmux_start` - starts `tcpmux`, don't call this directly
 - `tcpmux_stop` - stops `tcpmux`
@@ -36,8 +36,8 @@ $ cd ..
 ```sh
 $ bash compile.sh
 ```
-5. The compiled program is now available in the `out/` directory
-6. if you're using the systemd service: copy the `out/ ` dir to `/etc/tcpmux/` (so that the `tcpmux` script exists in `/etc/tcpmux/tcpmux`) You should also copy the systemd service (`tcpmux.service`) to `/usr/lib/systemd/`
+5. The compiled program is now available in the `out/tcpmux/` directory, a tarball is also available at `out/release.tar.gz`
+6. if you're using the systemd service: copy the `out/tcpmux/ ` dir to `/etc/tcpmux/` (so that the `tcpmux` script exists in `/etc/tcpmux/tcpmux`) You should also copy the systemd service (`tcpmux.service`) to `/usr/lib/systemd/`
 
 ## Config Format
 The configuration format is made up of lines separated by \n, where each line is parsed separately, with the following rules:
