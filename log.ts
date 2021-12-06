@@ -11,7 +11,7 @@ export function StyleSource(name: string[], code: string): [string] {
 }
 
 export function Log(source: [string], ...data: unknown[]) {
-	LogRaw(`${[source[0]]}`, ...data);
+	LogRaw(`[${[source[0]]}]`, ...data);
 }
 
 export function LogRaw(...data: unknown[]) {

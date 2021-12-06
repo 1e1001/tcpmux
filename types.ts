@@ -5,7 +5,7 @@ export interface Address {
 }
 
 export function PrintAddr(a: Address) {
-	const sp = a.subport ? `!${a.subport}` : ``;
+	const sp = a.subport === null ? `` : `!${a.subport}`;
 	return `${a.addr}:${a.port}${sp}`;
 }
 

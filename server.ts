@@ -40,7 +40,7 @@ export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
 						return incoming.close();
 					}
 					const match = table.get(subport)!;
-					Log(id, `Connecting on ${key}!${subport}`);
+					Log(id, `Connecting on ${PrintAddr({addr, port, subport})}`);
 					conn = await Connect({
 						addr: match.addr,
 						port: match.port,
