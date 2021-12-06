@@ -2,6 +2,8 @@ import { Address, GlobalData, GlobalOpts, muxHeader, PrintAddr } from "./types.t
 import { writeAll, copy, fromUInt, readStream, matchStream, toUInt } from "./bytes.ts";
 import { Listen, Listener, Connect, Connector } from "./conn.ts";
 import { Log, MkSource, StyleSource } from "./log.ts";
+import { deadline } from "https://deno.land/std@0.116.0/async/deadline.ts";
+import { TryAsync } from "./try.ts";
 const logSource = StyleSource(MkSource(`Server`), `36;1`);
 
 export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
@@ -30,7 +32,16 @@ export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
 				Log(id, `New connection`);
 				let conn: Connector | null = null;
 				try {
-					const headerMatch = await matchStream(incoming, muxHeader);
+					const headerMatchPromise = matchStream(incoming, muxHeader);
+					const headerMatch = await TryAsync(
+						() => deadline(headerMatchPromise, 1000),
+						error => {
+							Log(id, `Header read timed out, assuming default subport`);
+							console.log(error);
+							console.log();
+							return new Uint8Array(0);
+						}
+					);
 					let subport: bigint | null = null;
 					if (headerMatch === null)
 						subport = fromUInt(await readStream(incoming, 8));
