@@ -1,2 +1,4 @@
+#!/bin/bash
+cd $(dirname "${BASH_SOURCE[0]}")
 ./tcpmux_stop
 ./tcpmux_start
