@@ -13,3 +13,4 @@ run rm out/tcpmux.compiled.js
 # cd out
 # tar czvf release.tar.gz tcpmux
 # cd ..
+echo ">> # compile done"

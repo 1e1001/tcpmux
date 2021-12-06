@@ -12,3 +12,4 @@ run cp out/tcpmux.service /usr/lib/systemd/
 if ! [ -f /etc/tcpmux/tcpmux.cfg ]; then
 	run cp out/tcpmux.cfg /usr/lib/systemd/
 fi
+echo ">> # install done"

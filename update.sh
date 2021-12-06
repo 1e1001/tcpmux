@@ -9,3 +9,4 @@ run npm install
 run cd ..
 run bash ./compile.sh
 run sudo bash ./install.sh
+echo ">> # update done"
