@@ -45,6 +45,8 @@ export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
 					let subport: bigint | null = null;
 					if (headerMatch === null)
 						subport = fromUInt(await readStream(incoming, 8));
+					else
+						Log(id, `No header sent`);
 					if (!table.has(subport)) {
 						const subportStr = subport === null ? `default` : `!${subport};`
 						Log(id, `Invalid subport ${subportStr}, closing`);
