@@ -44,8 +44,8 @@ The configuration format is made up of lines separated by \n, where each line is
 - any starting or ending whitespace is ignored
 - if the line is entirely whitespace, it's ignored
 - if the first character of the line is a `#`, it's treated as a comment
-- any line with the format *name* `=` *value* is treated as a global configuration options
-	- name must match `/[A-Za-z0-9]+/`, and is case-insensitive
+- any line with the format *key* `=` *value* is treated as a global configuration options
+	- key must match `/[A-Za-z0-9]+/`, and is case-insensitive
 	- example: `Dry = true`
 	- [List of Config Keys](#list-of-config-keys)
 - any line with the format *addr* `>` *addr* is treated as a proxy config
@@ -56,3 +56,8 @@ The configuration format is made up of lines separated by \n, where each line is
 
 ### List of Config Keys
 - `dry` (boolean) if true, doesn't start any listeners
+
+## Infrequently Asked Questions
+
+- What permissions does this use?
+	as seen in `tcpmux_start` TCPmux uses `--allow-read=[your config path]` and `--allow-net`
