@@ -1,6 +1,6 @@
 #!/bin/bash
 function run {
-	echo $@
+	echo ">>" $@
 	$@
 }
 run git pull
