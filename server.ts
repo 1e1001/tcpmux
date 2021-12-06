@@ -64,6 +64,7 @@ export function StartServers(opts: GlobalOpts, globalData: GlobalData) {
 					if (headerMatch !== null)
 						await writeAll(outgoing, headerMatch);
 					if (match.subport !== null) {
+						Log(id, `Writing header`);
 						await writeAll(outgoing, muxHeader);
 						await writeAll(outgoing, toUInt(match.subport, 8));
 					}
