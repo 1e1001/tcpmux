@@ -2,7 +2,7 @@
 TCP multiplexer / proxy daemon
 
 ## Installing
-tcpmux consists of 4 main files, downloadable from the [Releases](https://github.com/1e1001/tcpmux/Releases/) as a tarball.
+tcpmux consists of 4 main files, downloadable from the [Releases](https://github.com/1e1001/tcpmux/releases/) as a tarball.
 - `tcpmux` - main TCPmux script
 - `tcpmux_start` - starts `tcpmux`, don't call this directly
 - `tcpmux_stop` - stops `tcpmux`
