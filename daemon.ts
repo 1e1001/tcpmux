@@ -4,14 +4,14 @@ import { ParseConfig } from "./parser.ts";
 import { GlobalData } from "./types.ts";
 import { Listener } from "./conn.ts";
 import { Try, TryAsync } from "./try.ts";
-import { Log, MkSource, StyleSource } from "./log.ts";
+import { Log, MkSource, StyleSource, StyleStr } from "./log.ts";
 
 const logSource = StyleSource(MkSource(`Daemon`), `33;1`);
 const configPath = Deno.args[0];
 if (!configPath)
 	throw new Error(`No config path specified`);
 console.log();
-Log(logSource, `\x1b[1mTCPmux\x1b[0m starting`)
+Log(logSource, `${StyleStr(`TCPmux`, `1`)} starting`);
 
 const globalData: GlobalData = {
 	inc: 0n,
