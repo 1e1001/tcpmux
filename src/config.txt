@@ -4,7 +4,7 @@
 # don't actually start any network things
 Dry = true
 
-# recursion :)
 # if google had an ssh server on subport 22 with the tcpmux server on 25565, this would be how to do it
 :8080 > google.com:25565!22
-:8081!1 > :8080
+# if you wanted to host port 80 on port 8081 subport 80
+*:8081!1 > :80
