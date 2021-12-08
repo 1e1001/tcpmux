@@ -12,7 +12,7 @@ const logSource = StyleSource(MkSource(`Parser`), `35;1`);
  */
 const configRegex = /^(.*):([0-9]{1,5})(?:!([0-9]{1,20}))?\W*(>|<)\W*(.*):([0-9]{1,5})(?:!([0-9]{1,20}))?$/;
 // key = value
-const setting = /^([A-Za-z]+)\W*=\W*(.+)$/;
+const setting = /^([A-Za-z0-9]+)\W*=\W*(.+)$/;
 
 type Option<T> = [T] | [];
 type MappingFunction = (v: string) => Option<unknown>;
