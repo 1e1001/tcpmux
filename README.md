@@ -2,16 +2,6 @@
 TCP multiplexer / proxy daemon
 
 ## Installing
-<!-- tcpmux consists of 4 main files, downloadable from the [Releases](https://github.com/1e1001/tcpmux/releases/) as a tarball.
-- `tcpmux` - main TCPmux script
-- `tcpmux_stop` - stops `tcpmux`
-- `tcpmux.service` - a systemd service for TCPmux
-> *Note: this expects tcpmux to be installed in* `/etc/tcpmux/` *such that* `/etc/tcpmux/tcpmux` is the main script
-- `config.txt` - example config file (see [Config Format](#config-format)) -->
-
-The best way to install TCPmux is to compile it from source, see [Building from source](#building-from-source) for instructions on how to do that.
-
-## Building from Source
 0. Make sure you have `deno` installed on your system
 1. Clone the repository
 ```sh
@@ -25,28 +15,16 @@ $ deno test
 > *Note: tests aren't complete yet, you can fix them if you want.*
 3. Run the update script, you can run this every time you want to upgrade
 ```sh
-bash ./update.sh
+$ scripts/compile.sh
+$ sudo scripts/install.sh # optional
 ```
-<!-- 3. Install terser for compilation
-```sh
-$ cd terser
-$ npm install
-$ cd ..
+Or, if you're on Windows:
+```bat
+[tcpmux directory]>scripts\compile.bat
 ```
-4. Run the compile script
-```sh
-$ bash ./compile.sh
-```
-5. you can then install TCPmux to your system with
-```sh
-$ sudo bash ./install.sh
-```
-5. The compiled program is now available in the `out/tcpmux/` directory, a tarball is also available at `out/release.tar.gz`
-6. if you're using the systemd service: copy the `out/tcpmux/ ` dir to `/etc/tcpmux/` (so that the `tcpmux` script exists in `/etc/tcpmux/tcpmux`) You should also copy the systemd service (`tcpmux.service`) to `/usr/lib/systemd/`
-	- You can run `install.sh` with root perms to automatically do this. -->
 
 ## Starting
-If you're using the systemd service, use `systemctl` commands to start it like any other service. Otherwise run `/etc/tcpmux/tcpmux` to start it.
+If you're using the systemd service, use `systemctl` commands to start it like any other service. Otherwise run `/etc/tcpmux/tcpmux` (or `tcpmux` in the `out` directory if using portable/on Windows) to start it.
 
 If you have incoming ports under 1024, you need to run `tcpmux` as root. Note that this does not apply to subports or outgoing ports
 
