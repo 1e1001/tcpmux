@@ -22,6 +22,7 @@ Or, if you're on Windows:
 ```bat
 [tcpmux directory]>scripts\compile.bat
 ```
+(it will complain about a missing file on first run, this is normal)
 
 ## Starting
 If you're using the systemd service, use `systemctl` commands to start it like any other service. Otherwise run `/etc/tcpmux/tcpmux` (or `tcpmux` in the `out` directory if using portable/on Windows) to start it.
