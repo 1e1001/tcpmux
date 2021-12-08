@@ -12,7 +12,9 @@ const configPath = Deno.args[0];
 if (!configPath)
 	throw new Error(`No config path specified`);
 console.log();
-Log(logSource, `${StyleStr(`TCPmux`, `1`)} starting`);
+// this gets replaced with the git commit id during compilation
+const version = ` [[TCPMUX_VERSION]]`;
+Log(logSource, `${StyleStr(`TCPmux`, `1`)}${version[1] === `[` ? `` : version} starting`);
 
 const globalData: GlobalData = {
 	inc: 0n,
