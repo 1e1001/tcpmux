@@ -41,8 +41,7 @@ The configuration format is made up of lines separated by \n, where each line is
 - any line with the format *addr* `>` *addr* is treated as a proxy config
 	- addr is *hostname* `:` *port* [ `!` *subport* ]
 		- addr: `*` binds to all ports, empty addr is localhost
-		- if subport isn't specified and it's on the incoming side, it's the address for a non-tcpmux connection
-		- if subport isn't specified and it's on the outgoing side, no mux header will be sent (connecting to a non-tcpmux address)
+		- if subport isn't specified, it's the address for a non-tcpmux connection
 - anything else will throw an error
 
 ### List of Config Keys
