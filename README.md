@@ -8,7 +8,7 @@ TCP multiplexer / proxy daemon
 - `tcpmux_stop` - stops `tcpmux`
 - `tcpmux.service` - a systemd service for TCPmux
 > *Note: this expects tcpmux to be installed in* `/etc/tcpmux/` *such that* `/etc/tcpmux/tcpmux` is the main script
-- `tcpmux.cfg` - example config file (see [Config Format](#config-format)) -->
+- `config.txt` - example config file (see [Config Format](#config-format)) -->
 
 The best way to install TCPmux is to compile it from source, see [Building from source](#building-from-source) for instructions on how to do that.
 

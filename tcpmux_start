@@ -1,5 +1,5 @@
 #!/bin/bash
 /*/true
-CFG=${TCPMUX_CONFIG:-"./tcpmux.cfg"}
+CFG=${TCPMUX_CONFIG:-"./config.txt"}
 deno run --allow-read=$CFG --allow-net --unstable ./tcpmux_start $CFG
 exit #*/
