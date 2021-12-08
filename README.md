@@ -12,7 +12,7 @@ TCP multiplexer / proxy daemon
 The best way to install TCPmux is to compile it from source, see [Building from source](#building-from-source) for instructions on how to do that.
 
 ## Building from Source
-0. Make sure you have `nodejs`, `npm`, and `deno` installed on your system
+0. Make sure you have `deno` installed on your system
 1. Clone the repository
 ```sh
 $ git clone https://github.com/1e1001/tcpmux
