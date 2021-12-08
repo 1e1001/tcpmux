@@ -5,7 +5,7 @@ import { GlobalData } from "./types.ts";
 import { Listener } from "./conn.ts";
 import { Try, TryAsync } from "./try.ts";
 import { Log, MkSource, StyleSource, StyleStr } from "./log.ts";
-import Interrupt from "./interrupt_poly.js";
+import Interrupt from "./interrupt_poly.ts";
 
 const logSource = StyleSource(MkSource(`Daemon`), `33;1`);
 const configPath = Deno.args[0];
