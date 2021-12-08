@@ -5,7 +5,7 @@ import { GlobalData } from "./types.ts";
 import { Listener } from "./conn.ts";
 import { Try, TryAsync } from "./try.ts";
 import { Log, MkSource, StyleSource, StyleStr } from "./log.ts";
-import "./interrupt_poly.js";
+import Interrupt from "./interrupt_poly.js";
 
 const logSource = StyleSource(MkSource(`Daemon`), `33;1`);
 const configPath = Deno.args[0];
@@ -30,7 +30,7 @@ async function Main() {
 	if (watcher !== null) {
 		let lastUpdateTimeout = -1;
 		await Run(false);
-		Deno.addSignalListener(`SIGINT`, async () => {
+		Interrupt(`SIGINT`, async () => {
 			console.log();
 			Log(logSource, `Shutting down`);
 			setTimeout(() => {
