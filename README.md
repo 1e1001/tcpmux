@@ -4,7 +4,6 @@ TCP multiplexer / proxy daemon
 ## Installing
 <!-- tcpmux consists of 4 main files, downloadable from the [Releases](https://github.com/1e1001/tcpmux/releases/) as a tarball.
 - `tcpmux` - main TCPmux script
-- `tcpmux_start` - starts `tcpmux`, don't call this directly
 - `tcpmux_stop` - stops `tcpmux`
 - `tcpmux.service` - a systemd service for TCPmux
 > *Note: this expects tcpmux to be installed in* `/etc/tcpmux/` *such that* `/etc/tcpmux/tcpmux` is the main script
@@ -74,4 +73,4 @@ The configuration format is made up of lines separated by \n, where each line is
 
 - What permissions does this use?
 
-	as seen in `tcpmux_start` TCPmux uses `--allow-read=[your config path]` and `--allow-net`
+	as seen in `tcpmux` TCPmux uses `--allow-read=[your config path]` and `--allow-net`

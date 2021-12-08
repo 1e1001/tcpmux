@@ -1,4 +1,6 @@
 #!/bin/bash
+/*/true
 cd $(dirname "${BASH_SOURCE[0]}")
-./tcpmux_stop
-./tcpmux_start
+CFG=${TCPMUX_CONFIG:-"./config.txt"}
+deno run --allow-read=$CFG --allow-net --unstable ./tcpmux $CFG
+exit #*/
