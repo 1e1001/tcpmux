@@ -23,32 +23,32 @@ const globalData: GlobalData = {
 };
 const listeners: Listener[] = [];
 Log(logSource, `Loading configuration`);
-const watcher = Try(
-	() => Deno.watchFs(globalData.configPath),
-	FailedToLoadConfigError
-);
-Main();
+//const watcher = Try(
+//	() => Deno.watchFs(globalData.configPath),
+//	FailedToLoadConfigError
+//);
+await Main();
 async function Main() {
-	if (watcher !== null) {
-		let lastUpdateTimeout = -1;
-		await Run(false);
-		Interrupt(`SIGINT`, async () => {
-			console.log();
-			Log(logSource, `Shutting down`);
-			setTimeout(() => {
-				const timeoutSeconds = globalData.killTimeout / 1000;
-				Log(logSource, `Waiting`, timeoutSeconds, `second${timeoutSeconds === 1 ? `` : `s`} for existing connections`);
-			}, globalData.killTimeout / 10);
-			const timeout = setTimeout(() => {
-				Log(logSource, `Connections did not close! Force quitting`);
-				Deno.exit(0);
-			}, globalData.killTimeout);
-			await Kill();
-			clearTimeout(timeout);
-			Log(logSource, `All done`);
+	//if (watcher !== null) {
+	let lastUpdateTimeout = -1;
+	await Run(false);
+	Interrupt(`SIGINT`, async () => {
+		console.log();
+		Log(logSource, `Shutting down`);
+		setTimeout(() => {
+			const timeoutSeconds = globalData.killTimeout / 1000;
+			Log(logSource, `Waiting`, timeoutSeconds, `second${timeoutSeconds === 1 ? `` : `s`} for existing connections`);
+		}, globalData.killTimeout / 10);
+		const timeout = setTimeout(() => {
+			Log(logSource, `Connections did not close! Force quitting`);
 			Deno.exit(0);
-		});
-		for await (const _ of watcher) {
+		}, globalData.killTimeout);
+		await Kill();
+		clearTimeout(timeout);
+		Log(logSource, `All done`);
+		Deno.exit(0);
+	});
+	/*	for await (const _ of watcher) {
 			if (lastUpdateTimeout >= 0)
 				clearTimeout(lastUpdateTimeout);
 			else
@@ -58,7 +58,7 @@ async function Main() {
 				await Run(true);
 			}, 100);
 		}
-	}
+	}*/
 }
 function FailedToLoadConfigError(error: unknown) {
 	Log(logSource, `Failed to load configuration from ${globalData.configPath}`);
