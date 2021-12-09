@@ -4,7 +4,7 @@
 # don't actually start any network things
 Dry = true
 
-# if google had an ssh server on subport 22 with the tcpmux server on 25565, this would be how to do it
+# maps google.com, port 25565, subport 22 to local port 8080 (only localhost can connect)
 :8080 > google.com:25565!22
-# if you wanted to host port 80 on port 8081 subport 42, available to other devices on the local network
+# hosts port 80 on port 8081, subport 42, available to other devices on the local network (and the internet, if port forwarded)
 *:8081!42 > :80
