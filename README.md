@@ -27,7 +27,7 @@ Or, if you're on Windows:
 ## Starting
 If you're using the systemd service, use `systemctl` commands to start it like any other service. Otherwise run `/etc/tcpmux/tcpmux` (or `tcpmux` in the `out` directory if using portable/on Windows) to start it.
 
-If you have incoming ports under 1024, you need to run `tcpmux` as root. Note that this does not apply to subports or outgoing ports
+If you have incoming ports under 1024, you need to run `tcpmux` as root. Note that this does not apply to subports or outgoing ports.
 
 ## Config Format
 The configuration format is made up of lines separated by \n, where each line is parsed separately, with the following rules:
