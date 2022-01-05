@@ -51,4 +51,4 @@ The configuration format is made up of lines separated by \n, where each line is
 
 - What permissions does this use?
 
-	as seen in `tcpmux` TCPmux uses `--allow-read=[your config path]` and `--allow-net`
+	as seen in `tcpmux.bat/sh` TCPmux uses `--allow-read=[your config path]` and `--allow-net`
