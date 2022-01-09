@@ -45,6 +45,10 @@ export function Listen(opts: ListenOptions): Listener {
 			tasks.push(opts.handle(conn).then(() => {
 				conn.close();
 				conns[idx] = null;
+			}).catch(error => {
+				Log(logSource, "Errored in handler");
+				console.log(error);
+				console.log();
 			}));
 		}
 	})());
